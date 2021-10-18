@@ -59,7 +59,9 @@ A4 = np.array([[-500.7, 120.7],
 x2 = np.random.uniform(0, 100, size=A2.shape[0])
 x4 = np.random.uniform(0, 100, size=A4.shape[0])
 x3 = np.random.uniform(0, 100, size=A3.shape[0])
-print(A2)
+p_A2=A2
+p_A3=A3
+p_A4=A4
 A2 = iter_form(A2)
 A4 = iter_form(A4)
 A3 = iter_form(A3)
@@ -69,14 +71,17 @@ b3 = np.dot(A3,x3)
 alpha2, beta2 = calculate_alpha_beta(A2, b2)
 alpha4, beta4 = calculate_alpha_beta(A4, b4)
 alpha3, beta3 = calculate_alpha_beta(A3, b3)
+print(p_A4)
 print(tabulate([[10**(-5),iteration(alpha4, beta4, beta4, 10**(-5))[1],zeidel(A4, b4,10**(-5))[1],np.linalg.norm(x4 - iteration(alpha4, beta4, beta4, 10**(-5))[0]),np.linalg.norm(x4 - zeidel(A4, b4, 10**(-5))[0])],
                 [10**(-8),iteration(alpha4, beta4, beta4, 10**(-8))[1],zeidel(A4, b4,10**(-8))[1],np.linalg.norm(x4 - iteration(alpha4, beta4, beta4, 10**(-8))[0]),np.linalg.norm(x4 - zeidel(A4, b4, 10**(-8))[0])],
                 [10**(-11),iteration(alpha4, beta4, beta4, 10**(-11))[1],zeidel(A4, b4,10**(-11))[1],np.linalg.norm(x4 - iteration(alpha4, beta4, beta4, 10**(-11))[0]),np.linalg.norm(x4 - zeidel(A4, b4, 10**(-11))[0])],
                 [10**(-14),iteration(alpha4, beta4, beta4, 10**(-14))[1],zeidel(A4, b4,10**(-14))[1],np.linalg.norm(x4 - iteration(alpha4, beta4, beta4, 10**(-14))[0]),np.linalg.norm(x4 - zeidel(A4, b4, 10**(-14))[0])]], headers=['Погрешность','#Итерации простого','#Итерации Зейделя','|x-x_pr|','|x-x_zei|'],tablefmt='orgtbl'))
+print(p_A3)
 print(tabulate([[10**(-5),iteration(alpha3, beta3, beta3, 10**(-5))[1],zeidel(A3, b3,10**(-5))[1],np.linalg.norm(x3 - iteration(alpha3, beta3, beta3, 10**(-5))[0]),np.linalg.norm(x3 - zeidel(A3, b3, 10**(-5))[0])],
                 [10**(-8),iteration(alpha3, beta3, beta3, 10**(-8))[1],zeidel(A3, b3,10**(-8))[1],np.linalg.norm(x3 - iteration(alpha3, beta3, beta3, 10**(-8))[0]),np.linalg.norm(x3 - zeidel(A3, b3, 10**(-8))[0])],
                 [10**(-11),iteration(alpha3, beta3, beta3, 10**(-11))[1],zeidel(A3, b3,10**(-11))[1],np.linalg.norm(x3 - iteration(alpha3, beta3, beta3, 10**(-11))[0]),np.linalg.norm(x3 - zeidel(A3, b3, 10**(-11))[0])],
                 [10**(-14),iteration(alpha3, beta3, beta3, 10**(-14))[1],zeidel(A3, b3,10**(-14))[1],np.linalg.norm(x3 - iteration(alpha3, beta3, beta3, 10**(-14))[0]),np.linalg.norm(x3 - zeidel(A3, b3, 10**(-14))[0])]], headers=['Погрешность','#Итерации простого','#Итерации Зейделя','|x-x_pr|','|x-x_zei|'],tablefmt='orgtbl'))
+print(p_A2)
 print(tabulate([[10**(-5),iteration(alpha2, beta2, beta2, 10**(-5))[1],zeidel(A2, b2,10**(-5))[1],np.linalg.norm(x2 - iteration(alpha2, beta2, beta2, 10**(-5))[0]),np.linalg.norm(x2 - zeidel(A2, b2, 10**(-5))[0])],
                 [10**(-8),iteration(alpha2, beta2, beta2, 10**(-8))[1],zeidel(A2, b2,10**(-8))[1],np.linalg.norm(x2 - iteration(alpha2, beta2, beta2, 10**(-8))[0]),np.linalg.norm(x2 - zeidel(A2, b2, 10**(-8))[0])],
                 [10**(-11),iteration(alpha2, beta2, beta2, 10**(-11))[1],zeidel(A2, b2,10**(-11))[1],np.linalg.norm(x2 - iteration(alpha2, beta2, beta2, 10**(-11))[0]),np.linalg.norm(x2 - zeidel(A2, b2, 10**(-11))[0])],
